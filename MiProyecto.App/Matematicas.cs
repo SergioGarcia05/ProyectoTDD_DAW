@@ -29,14 +29,9 @@ namespace MiProyecto.App
         }
         public bool EsPinValido(string pin)
         {
-            if (string.IsNullOrEmpty(pin)) 
-                return false;
-            if (pin.Length < 8) 
-                return false;
-            if (!pin.Contains("#")) 
-                return false;
-
-            return true;
+            return !string.IsNullOrEmpty(pin) &&
+                   pin.Length >= 8 &&
+                   pin.Contains("#");
         }
     }
 }

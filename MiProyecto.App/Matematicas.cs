@@ -5,10 +5,22 @@ using System.Text;
 namespace MiProyecto.App
 {
     public class Matematicas
-    {   
+    {
         public long CalcularFactorial(int n)
         {
-            throw new NotImplementedException();
+            if (n < 0)
+            {
+                return -1;
+            }
+
+            long resultado = 1;
+
+            for (int i = 1; i <= n; i++)
+            {
+                resultado *= i;
+            }
+
+            return resultado;
         }
     }
 }

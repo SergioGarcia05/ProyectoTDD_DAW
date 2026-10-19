@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace MiProyecto.App
+{
+    public class Matematicas
+    {
+        public long CalcularFactorial(int n)
+        {
+            if (n < 0)
+            {
+                return -1;
+            }
+
+            if (n <= 1)
+            {
+                return 1;
+            }
+
+            long resultado = 1;
+
+            for (int i = 2; i <= n; i++)
+            {
+                resultado *= i;
+            }
+
+            return resultado;
+        }
+        public bool EsPinValido(string pin)
+        {
+            return !string.IsNullOrEmpty(pin) &&
+                   pin.Length >= 8 &&
+                   pin.Contains("#");
+        }
+    }
+}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MiProyecto.App
@@ -27,11 +28,22 @@ namespace MiProyecto.App
 
             return resultado;
         }
+
         public bool EsPinValido(string pin)
         {
-            return !string.IsNullOrEmpty(pin) &&
-                   pin.Length >= 8 &&
-                   pin.Contains("#");
+            // 1. Validar que no sea nulo ni vacío
+            if (string.IsNullOrEmpty(pin)) return false;
+
+            // 2. Validar longitud: debe ser estrictamente de 4 o 6 caracteres
+            if (pin.Length != 4 && pin.Length != 6) return false;
+
+            // 3. Validar que todos los caracteres sean números
+            if (!pin.All(char.IsDigit)) return false;
+
+            // 4. Validar que no sean todos los dígitos iguales (ej: "1111", "888888")
+            if (pin.Distinct().Count() == 1) return false;
+
+            return true;
         }
     }
 }

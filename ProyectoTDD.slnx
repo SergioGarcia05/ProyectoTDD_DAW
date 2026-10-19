@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MiProyecto.App/MiProyecto.App.csproj" />
+  <Project Path="MiProyecto.Tests/MiProyecto.Tests.csproj" />
+</Solution>
